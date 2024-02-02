@@ -53,7 +53,7 @@ export class App extends Component {
     });
   };
 
-  handleModalClose = () => {
+  handleClose = event => {
     this.setState({
       modalOpen: false,
       modalImg: '',
@@ -62,16 +62,16 @@ export class App extends Component {
   };
   handleBackdropeClick = event => {
     if (event.target === event.currentTarget) {
-      this.handleModalClose();
+      this.handleClose();
     }
   };
   async componentWillUnmount() {
     window.removeEventListener('keydown', this.handleBackdropeClick);
   }
-
+  
   handleKeyDown = event => {
     if (event.code === "Escape") {
-      this.handleModalClose();
+      this.handleClose();
     }
   };
 
@@ -107,7 +107,7 @@ export class App extends Component {
           <Modal
             src={this.state.modalImg}
             alt={this.state.modalAlt}
-            handleClose={this.handleModalClose}
+            handleClose={this.handleBackdropeClick}
           />
         ) : null}
       </div>
