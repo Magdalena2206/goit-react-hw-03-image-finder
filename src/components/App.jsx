@@ -60,9 +60,17 @@ export class App extends Component {
       modalAlt: '',
     });
   };
+  handleBackdropeClick = event => {
+    if (event.target === event.currentTarget) {
+      this.handleModalClose();
+    }
+  };
+  async componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleBackdropeClick);
+  }
 
   handleKeyDown = event => {
-    if (event.code === 'Escape') {
+    if (event.code === "Escape") {
       this.handleModalClose();
     }
   };

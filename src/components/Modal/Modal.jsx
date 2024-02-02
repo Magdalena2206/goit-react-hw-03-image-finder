@@ -1,6 +1,7 @@
 import css from './Modal.module.css';
 import propTypes from 'prop-types';
 
+
 export const Modal = ({ src, alt, handleClose }) => (
   <div className={css.Overlay} onClick={handleClose}>
     <div className={css.Modal}>
